@@ -247,24 +247,24 @@ const itemVertical = StyleSheet.create({
         gap: 20,
     },
     cardItem: {
-        backgroundColor: colors.lightBlue(0.2),  
+        backgroundColor: colors.lightBlue(0.2),
         flexDirection: 'row',
         borderRadius: 10,
     },
     cardCategory: {
-        color: colors.black(),  
+        color: colors.black(),
         fontSize: 14,
         fontFamily: fontType['Pjs-SemiBold'],
     },
     cardTitle: {
         fontSize: 12,
         fontFamily: fontType['Pjs-Bold'],
-        color: colors.darkBlue(),  
+        color: colors.darkBlue(),
     },
     cardText: {
         fontSize: 12,
         fontFamily: fontType['Pjs-Medium'],
-        color: colors.darkGrey(0.7),  
+        color: colors.darkGrey(0.7),
     },
     cardImage: {
         width: 100,
@@ -292,10 +292,10 @@ const itemHorizontal = StyleSheet.create({
         width: 320,
         margin: 10,
         borderRadius: 15,
-        backgroundColor: colors.lightBlue(0.3),  
+        backgroundColor: colors.lightBlue(0.3),
         overflow: 'hidden',
         elevation: 5,
-        shadowColor: colors.darkBlue(),  
+        shadowColor: colors.darkBlue(),
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.1,
         shadowRadius: 5,
@@ -321,22 +321,23 @@ const itemHorizontal = StyleSheet.create({
     cardTitle: {
         fontFamily: fontType['Pjs-Bold'],
         fontSize: 16,
-        color: colors.darkBlue(),  
+        color: colors.darkBlue(),
         fontWeight: '700',
         lineHeight: 22,
     },
     cardText: {
         fontSize: 12,
-        color: colors.darkGrey(),  
+        color: colors.darkGrey(),
         fontFamily: fontType['Pjs-Medium'],
         lineHeight: 18,
     },
     cardIcon: {
-        backgroundColor: colors.yellow(0.4),  
+        backgroundColor: colors.yellow(0.4),
         padding: 8,
         borderColor: colors.yellow(),
         borderWidth: 0.8,
         borderRadius: 8,
     },
+
 });
 
