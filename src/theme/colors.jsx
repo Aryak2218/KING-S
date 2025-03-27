@@ -16,5 +16,4 @@ const colors = {
     darkModeGrey: (opacity = 1) => `rgba(44, 62, 80, ${opacity})`,
     darkModeWhite: (opacity = 1) => `rgba(236, 240, 241, ${opacity})`,
 };
-
 export default colors;
