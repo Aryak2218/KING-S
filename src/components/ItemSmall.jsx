@@ -10,7 +10,9 @@ const ItemSmall = ({ item }) => {
                 <Text style={styles.title}>{item.title}</Text>
                 <Text style={styles.description}>{item.description}</Text>
             </View>
+            <Text style={styles.title}>Detail</Text>
         </View>
+
     );
 };
 

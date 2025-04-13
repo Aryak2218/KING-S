@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         backgroundColor: "#f0f0f0",
         alignItems: "center",
-        padding: 10,
+        padding: 30,
     },
     image: {
         width: 120,
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     title: {
         marginTop: 5,
         fontSize: 14,
-        fontWeight: "bold", s
+        fontWeight: "bold", 
     },
 });
 
