@@ -1,28 +1,28 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import products from '../data';
+import * as Animatable from 'react-native-animatable';
 
 const ProductDetailScreen = ({ route }) => {
-
-
-
   return (
     <ScrollView style={styles.container}>
-      <Image
-        source={{ uri: products[0].image }}
-        style={styles.productImage}
+      <Animatable.Image 
+        source={{ uri: products[0].image }} 
+        style={styles.productImage} 
         resizeMode="cover"
+        animation="zoomIn"
+        duration={1000}
       />
-
+      
       <View style={styles.productInfo}>
         <Text style={styles.productTitle}>{products[0].title}</Text>
         <Text style={styles.productCategory}>{products[0].category}</Text>
-
+        
         <View style={styles.descriptionSection}>
           <Text style={styles.sectionTitle}>Deskripsi Produk</Text>
           <Text style={styles.productDescription}>{products[0].description}</Text>
         </View>
-
+        
         <View style={styles.detailSection}>
           <View style={styles.detailItem}>
             <Text style={styles.detailLabel}>Ketersediaan</Text>
@@ -33,10 +33,15 @@ const ProductDetailScreen = ({ route }) => {
             <Text style={styles.detailText}>Baru</Text>
           </View>
         </View>
-
-        <TouchableOpacity style={styles.buyButton}>
-          <Text style={styles.buyButtonText}>Beli Sekarang</Text>
-        </TouchableOpacity>
+        
+        <Animatable.View
+          animation="bounceIn"
+          duration={1000}
+        >
+          <TouchableOpacity style={styles.buyButton}>
+            <Text style={styles.buyButtonText}>Beli Sekarang</Text>
+          </TouchableOpacity>
+        </Animatable.View>
       </View>
     </ScrollView>
   );

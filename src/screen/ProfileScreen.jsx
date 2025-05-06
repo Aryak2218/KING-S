@@ -1,14 +1,19 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
-import products from '../data';
+import { useNavigation } from '@react-navigation/native';
+import * as Animatable from 'react-native-animatable';
 
 const ProfileScreen = () => {
+  const navigation = useNavigation(); // ✅ Untuk akses navigasi
+
   return (
     <ScrollView style={styles.container}>
       <View style={styles.profileHeader}>
-        <Image
-          source={{ uri: 'https://i.pinimg.com/236x/9c/83/e0/9c83e0e917f900da1f7697b42db8f149.jpg' }}
-          style={styles.profileImage}
+        <Animatable.Image 
+          source={{ uri: 'https://i.pinimg.com/236x/9c/83/e0/9c83e0e917f900da1f7697b42db8f149.jpg' }} 
+          style={styles.profileImage} 
+          animation="fadeIn"
+          duration={1000}
         />
         <Text style={styles.name}>Toko Sparepart Motor</Text>
         <Text style={styles.username}>@tokosparepart</Text>
@@ -37,6 +42,20 @@ const ProfileScreen = () => {
           <Text style={styles.actionButtonText}>Pengaturan</Text>
         </TouchableOpacity>
       </View>
+
+      {/* ✅ Tombol baru untuk ke FormScreen */}
+      <Animatable.View
+        style={styles.actionSection}
+        animation="zoomIn"
+        duration={1500}
+      >
+        <TouchableOpacity
+          style={[styles.actionButton, { backgroundColor: '#007AFF' }]}
+          onPress={() => navigation.navigate('Form')}
+        >
+          <Text style={[styles.actionButtonText, { color: 'white' }]}>Tambah Produk</Text>
+        </TouchableOpacity>
+      </Animatable.View>
     </ScrollView>
   );
 };
@@ -102,6 +121,5 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-
 
 export default ProfileScreen;

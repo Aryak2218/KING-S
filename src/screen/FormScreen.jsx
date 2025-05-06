@@ -8,7 +8,7 @@ const FormScreen = () => {
 
   const handleSubmit = () => {
     Alert.alert('Produk Ditambahkan', `Nama: ${title}\nHarga: ${price}`);
-
+    
     setTitle('');
     setPrice('');
     setImage('');
@@ -40,7 +40,4 @@ const styles = StyleSheet.create({
   input: { borderWidth: 1, borderColor: '#ccc', borderRadius: 8, padding: 10 },
   button: { backgroundColor: '#000', padding: 15, borderRadius: 10, marginTop: 30 },
   buttonText: { color: '#fff', textAlign: 'center', fontWeight: 'bold' },
-
-
-
-}); 
+});
