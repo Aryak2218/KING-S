@@ -6,9 +6,9 @@ const ProfileScreen = () => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.profileHeader}>
-        <Image 
-          source={{ uri: 'https://i.pinimg.com/236x/9c/83/e0/9c83e0e917f900da1f7697b42db8f149.jpg' }} 
-          style={styles.profileImage} 
+        <Image
+          source={{ uri: 'https://i.pinimg.com/236x/9c/83/e0/9c83e0e917f900da1f7697b42db8f149.jpg' }}
+          style={styles.profileImage}
         />
         <Text style={styles.name}>Toko Sparepart Motor</Text>
         <Text style={styles.username}>@tokosparepart</Text>
@@ -102,5 +102,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
+
 
 export default ProfileScreen;

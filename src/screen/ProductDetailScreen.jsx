@@ -8,21 +8,21 @@ const ProductDetailScreen = ({ route }) => {
 
   return (
     <ScrollView style={styles.container}>
-      <Image 
-        source={{ uri: products[0].image }} 
-        style={styles.productImage} 
+      <Image
+        source={{ uri: products[0].image }}
+        style={styles.productImage}
         resizeMode="cover"
       />
-      
+
       <View style={styles.productInfo}>
         <Text style={styles.productTitle}>{products[0].title}</Text>
         <Text style={styles.productCategory}>{products[0].category}</Text>
-        
+
         <View style={styles.descriptionSection}>
           <Text style={styles.sectionTitle}>Deskripsi Produk</Text>
           <Text style={styles.productDescription}>{products[0].description}</Text>
         </View>
-        
+
         <View style={styles.detailSection}>
           <View style={styles.detailItem}>
             <Text style={styles.detailLabel}>Ketersediaan</Text>
@@ -33,7 +33,7 @@ const ProductDetailScreen = ({ route }) => {
             <Text style={styles.detailText}>Baru</Text>
           </View>
         </View>
-        
+
         <TouchableOpacity style={styles.buyButton}>
           <Text style={styles.buyButtonText}>Beli Sekarang</Text>
         </TouchableOpacity>
