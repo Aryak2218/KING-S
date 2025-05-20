@@ -1,17 +1,17 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import products from '../data';
+import * as Animatable from 'react-native-animatable';
 
 const ProductDetailScreen = ({ route }) => {
-
-
-
   return (
     <ScrollView style={styles.container}>
-      <Image 
+      <Animatable.Image 
         source={{ uri: products[0].image }} 
         style={styles.productImage} 
         resizeMode="cover"
+        animation="zoomIn"
+        duration={1000}
       />
       
       <View style={styles.productInfo}>
@@ -34,9 +34,14 @@ const ProductDetailScreen = ({ route }) => {
           </View>
         </View>
         
-        <TouchableOpacity style={styles.buyButton}>
-          <Text style={styles.buyButtonText}>Beli Sekarang</Text>
-        </TouchableOpacity>
+        <Animatable.View
+          animation="bounceIn"
+          duration={1000}
+        >
+          <TouchableOpacity style={styles.buyButton}>
+            <Text style={styles.buyButtonText}>Beli Sekarang</Text>
+          </TouchableOpacity>
+        </Animatable.View>
       </View>
     </ScrollView>
   );
