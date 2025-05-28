@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, Image } from 'react-native';
-import axios from 'axios';
+import { db } from '../firebase/firebaseConfig';
+import { addDoc, collection, doc, updateDoc } from 'firebase/firestore';
+import { displayNotification } from '../utils/notification'; 
 
 const FormScreen = ({ navigation, route }) => {
   const [category, setCategory] = useState(route?.params?.category || '');
@@ -11,14 +13,20 @@ const FormScreen = ({ navigation, route }) => {
 
   const handleSubmit = async () => {
     const data = { category, title, description, image };
+
     try {
       if (isEdit) {
-        await axios.put(`https://682489d30f0188d7e729b56a.mockapi.io/api/barang/${route.params.id}`, data);
+        const docRef = doc(db, 'barang', route.params.id);
+        await updateDoc(docRef, data);
         Alert.alert('Produk Diperbarui');
       } else {
-        await axios.post('https://682489d30f0188d7e729b56a.mockapi.io/api/barang', data);
+        await addDoc(collection(db, 'barang'), data);
         Alert.alert('Produk Ditambahkan');
+
+
+        await displayNotification('Produk Baru Ditambahkan', `${title} telah berhasil ditambahkan`);
       }
+
       navigation.goBack();
     } catch (error) {
       Alert.alert('Terjadi kesalahan', error.message);

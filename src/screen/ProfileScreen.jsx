@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import * as Animatable from 'react-native-animatable';
-import axios from 'axios';
+import { db } from '../firebase/firebaseConfig';
+import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore';
 
 const ProfileScreen = () => {
   const navigation = useNavigation();
@@ -10,8 +11,12 @@ const ProfileScreen = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('https://682489d30f0188d7e729b56a.mockapi.io/api/barang');
-      setData(response.data);
+      const querySnapshot = await getDocs(collection(db, 'barang'));
+      const items = [];
+      querySnapshot.forEach((docItem) => {
+        items.push({ id: docItem.id, ...docItem.data() });
+      });
+      setData(items);
     } catch (error) {
       Alert.alert('Gagal memuat data');
     }
@@ -19,7 +24,7 @@ const ProfileScreen = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://682489d30f0188d7e729b56a.mockapi.io/api/barang/${id}`);
+      await deleteDoc(doc(db, 'barang', id));
       fetchData();
     } catch (error) {
       Alert.alert('Gagal menghapus produk');
@@ -34,9 +39,9 @@ const ProfileScreen = () => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.profileHeader}>
-        <Animatable.Image 
-          source={{ uri: 'https://i.pinimg.com/236x/9c/83/e0/9c83e0e917f900da1f7697b42db8f149.jpg' }} 
-          style={styles.profileImage} 
+        <Animatable.Image
+          source={{ uri: 'https://i.pinimg.com/236x/9c/83/e0/9c83e0e917f900da1f7697b42db8f149.jpg' }}
+          style={styles.profileImage}
           animation="fadeIn"
           duration={1000}
         />
